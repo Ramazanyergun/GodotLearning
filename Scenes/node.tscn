@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cox2qc4oxfot0"]
 
-[ext_resource type="Script" uid="uid://5ycqrawhojj0" path="res://Scripts/Game.gd" id="1_sy5k4"]
+[ext_resource type="Script" uid="uid://5ycqrawhojj0" path="res://Scripts/Game.gd" id="1_5g7os"]
+[ext_resource type="Script" uid="uid://cl0qjnnclugra" path="res://Scenes/lbl_result.gd" id="2_6b8r6"]
 
 [node name="Game" type="Node" unique_id=570033602]
-script = ExtResource("1_sy5k4")
+script = ExtResource("1_5g7os")
 
 [node name="Panel" type="Panel" parent="." unique_id=365346256]
 custom_minimum_size = Vector2(250, 400)
@@ -43,11 +44,13 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Add"
 
-[node name="LblResult" type="Label" parent="Panel/VBoxContainer" unique_id=193354809]
+[node name="LblResult" type="Label" parent="Panel/VBoxContainer" unique_id=193354809 node_paths=PackedStringArray("game")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Result"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("2_6b8r6")
+game = NodePath("../../..")
 
 [connection signal="pressed" from="Panel/VBoxContainer/BtnTotal" to="." method="_on_btn_total_pressed"]
